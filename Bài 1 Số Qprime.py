@@ -42,10 +42,18 @@ def isPrime(n, k):
         if(millerTest(r, n) == False):
             return False
     return True
-k = 4
+def is_q_prime(n,k):
+    if n < 4:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            factor1 = i
+            factor2 = n // i
+            if isPrime(factor1, k) and isPrime(factor2, k):
+                return True
+    return False
+k = int(input("Cho vòng lặp bạn muốn: "))
 n = int(input("Nhập số nguyên dương n: "))
-print("All primes smaller than {}: ".format(n))
-for n in range(1, n):
-    if(isPrime(n, k)):
-        print(n, end = " ")
-        
+for i in range(n+1):
+    if(is_q_prime(i, k) == True):
+        print(i, end= " ") 

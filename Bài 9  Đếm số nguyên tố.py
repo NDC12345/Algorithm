@@ -42,10 +42,13 @@ def isPrime(n, k):
         if(millerTest(r, n) == False):
             return False
     return True
-k = 4
-n = int(input("Nhập số nguyên dương n: "))
-print("All primes smaller than {}: ".format(n))
-for n in range(1, n):
-    if(isPrime(n, k)):
-        print(n, end = " ")
-        
+if __name__ == '__main__':
+    n = int(input("Nhập vào số nguyên n: "))
+    a =[]
+    k = 4
+    for i in range(n):
+        if (isPrime(i, k) == True):
+            a.append(i)
+print(a)        
+  
+            

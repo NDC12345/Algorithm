@@ -1,3 +1,4 @@
+n = int(input("Nhập số nguyên dương n: "))
 import random
 def power(a, k, n):
     b = 1
@@ -42,10 +43,24 @@ def isPrime(n, k):
         if(millerTest(r, n) == False):
             return False
     return True
-k = 4
-n = int(input("Nhập số nguyên dương n: "))
-print("All primes smaller than {}: ".format(n))
-for n in range(1, n):
-    if(isPrime(n, k)):
-        print(n, end = " ")
+coso = []
+somu = []
+for i in range(2, n +1):
+    count = 0
+    while(n % i == 0):
+        count += 1
+        n = int(n / i)
+        if(isPrime(n, 4) == False or isPrime(i, 4) == False):
+            continue
+    if(count):
+        if(count > 1): 
+            coso.append(i)
+            somu.append(count)
+        else: 
+            coso.append(i)
+            somu.append(count)
+        if(n > i):
+            continue
+print("Cơ số là: ", coso)
+print("Số mũ là: ", somu)
         
